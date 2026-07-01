@@ -1,5 +1,5 @@
-# โปรแกรม 3: Event Loop (asyncio.run)
-# คอนเซปต์: การใช้งาน Event Loop เพื่อประมวลผลออบเจกต์ Coroutine จริง
+# Program 3: Event Loop (asyncio.run)
+# Concept: Using the event loop to execute a coroutine object to completion.
 import asyncio
 from time import time, ctime
 
@@ -13,9 +13,8 @@ if __name__ == "__main__":
     start_time = time()
     print(f"{ctime()} -> Creating coroutine object...")
     coro = serve_customer("A")
-
+    
     print(f"{ctime()} -> Running the coroutine object using asyncio.run()...")
-    # ประมวลผลคอร์รันทีนให้ทำงานจนเสร็จโดยใช้ Event Loop ผ่าน asyncio.run()
     result = asyncio.run(coro)
     print(f"{ctime()} -> Coroutine finished. Returned value: {result}")
     print(f"Total Operation Time: {time() - start_time:.2f} seconds")

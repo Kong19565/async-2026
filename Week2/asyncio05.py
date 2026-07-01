@@ -1,5 +1,5 @@
-# โปรแกรม 5: การทำงานแบบเรียงลำดับ (วิธีที่ผิด)
-# คอนเซปต์: แสดงให้เห็นว่าการใช้ await รันงานเรียงทีละงานจะยังเป็นกระบวนการแบบเรียงลำดับ (Synchronous)
+# Program 5: Sequential Execution (The Wrong Way)
+# Concept: Awaiting coroutines sequentially is still synchronous.
 import asyncio
 from time import time, ctime
 
@@ -10,11 +10,10 @@ async def serve_customer(name):
 
 async def main():
     start = time()
-    # หากกดสั่งรอ (await) ทีละตัว มันจะทำงานเป็นลำดับทีละคนตามเดิม!
     await serve_customer("A")
     await serve_customer("B")
-
-    print(f"Total Time: {time() - start:.2f} seconds") # จะใช้เวลาประมาณ 2 วินาที
+    
+    print(f"Total Time: {time() - start:.2f} seconds")
 
 if __name__ == "__main__":
     asyncio.run(main())
