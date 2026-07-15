@@ -66,9 +66,10 @@ async def main():
     print("  [1] Sequential - เปิดไฟทีละดวง")
     print("  [2] Async      - เปิดไฟพร้อมกัน")
     print("  [3] Both       - รันทั้ง 2 โหมดเปรียบเทียบ")
+    print("  [reset] reset  - ปิดทุกดวง")
     print("=" * 50)
 
-    choice = input("Select mode (1/2/3): ").strip()
+    choice = input("Select mode (1/2/3/reset): ").strip()
 
     if choice == "1":
         await sequential_mode()
@@ -76,8 +77,10 @@ async def main():
         await async_mode()
     elif choice == "3":
         await both_modes()
+    elif choice == "reset":
+        await reset_lights()
     else:
-        print("Invalid choice. Please select 1, 2, or 3.")
+        print("Invalid choice. Please select 1, 2, 3 or reset.")
 
 
 if __name__ == "__main__":
